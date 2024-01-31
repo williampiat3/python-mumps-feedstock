@@ -12,7 +12,7 @@ source:
 build:
   skip: true  # [py<39 or python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -22,7 +22,7 @@ requirements:
     - cython >=3.0.2
     - meson >=1.1.0
     - meson-python >=0.15.0
-    - numpy 1.23
+    - numpy >=1.23
     - mumps-seq >=5.6
     - setuptools-scm
     - pip
