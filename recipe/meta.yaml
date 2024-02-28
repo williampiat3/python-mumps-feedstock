@@ -38,7 +38,7 @@ requirements:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy >=1.8
-    - mumps-seq >=5.6
+    - mumps-seq
 
 test:
   imports:
