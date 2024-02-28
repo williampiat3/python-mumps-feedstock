@@ -20,7 +20,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy =1.23.*                          # [build_platform != target_platform and py<312]
-    - numpy =1.26.*                          # [build_platform != target_platform and py=312]
+    - numpy =1.26.*                          # [build_platform != target_platform and py>=312]
     - ninja                                  # [unix]
     - pkg-config                             # [unix]
   host:
@@ -29,7 +29,7 @@ requirements:
     - meson >=1.1.0
     - meson-python >=0.15.0
     - numpy =1.23.*                          # [py<312]
-    - numpy =1.26.*                          # [py=312]
+    - numpy =1.26.*                          # [py>=312]
     - mumps-seq >=5.6
     - setuptools-scm
     - pip
