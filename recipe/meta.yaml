@@ -1,5 +1,5 @@
 {% set name = "python-mumps" %}
-{% set version = "0.0.1.post1" %}
+{% set version = "0.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/python_mumps-{{ version }}.tar.gz
-  sha256: 58bf081147c7a4c8fb80ca30a5f5008bd816bc6349fd969edad8dda058648bdb
+  sha256: ae19e9242ca1827f10e7e57021a4be0207b8b9c563472752ca7a0edd7700b223
 
 build:
   skip: true  # [py<39 or python_impl == 'pypy']
-  number: 7
+  number: 0
 
 requirements:
   build:
