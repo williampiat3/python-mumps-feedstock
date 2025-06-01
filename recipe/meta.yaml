@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/python_mumps-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/python_mumps-{{ version }}.tar.gz
   sha256: 2cc81a86066641fa993b6636c4e9e11c7e03b43766ec7d01b40f2796067a665e
 
 build:
