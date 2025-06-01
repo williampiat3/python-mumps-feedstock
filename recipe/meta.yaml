@@ -1,5 +1,5 @@
 {% set name = "python-mumps" %}
-{% set version = "0.0.3" %}
+{% set version = "0.0.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/python_mumps-{{ version }}.tar.gz
-  sha256: bb10a6bb3fd1522ed5771b832f99ed0c590b2524d5ae672cbb1b7348634be550
+  sha256: 2cc81a86066641fa993b6636c4e9e11c7e03b43766ec7d01b40f2796067a665e
 
 build:
-  skip: true  # [py<39 or python_impl == 'pypy']
+  skip: true  # [py<311 or python_impl == 'pypy']
   number: 0
 
 requirements:
@@ -39,7 +39,7 @@ requirements:
     - python-build
   run:
     - python
-    - scipy >=1.8
+    - scipy >=1.11
     - mumps-seq
 
 test:
