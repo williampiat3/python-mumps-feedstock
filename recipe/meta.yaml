@@ -13,7 +13,7 @@ source:
 
 build:
   skip: true  # [py<311 or python_impl == 'pypy']
-  number: 2
+  number: 3
 
 requirements:
   build:
