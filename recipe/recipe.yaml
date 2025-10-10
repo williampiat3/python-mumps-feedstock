@@ -11,12 +11,9 @@ package:
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/python_mumps-${{ version }}.tar.gz
   sha256: 2cc81a86066641fa993b6636c4e9e11c7e03b43766ec7d01b40f2796067a665e
-  patches:
-    - if: target_platform == 'osx-arm64'
-      then: 0001-disable-scotch.patch
 
 build:
-  number: 4
+  number: 5
   skip: match(python, "<3.11") or python_impl == 'pypy'
 
 requirements:
