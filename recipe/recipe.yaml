@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: python-mumps
-  version: 0.0.4
+  version: 0.0.5
 
 package:
   name: ${{ name|lower }}
@@ -10,11 +10,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/python_mumps-${{ version }}.tar.gz
-  sha256: 2cc81a86066641fa993b6636c4e9e11c7e03b43766ec7d01b40f2796067a665e
+  sha256: ec660d2dc4f6ded9b33beef6b0c12443a163383b1a0c8646221125026691d36f
 
 build:
-  number: 5
-  skip: match(python, "<3.11") or python_impl == 'pypy'
+  number: 0
+  skip: match(python, "<3.12") or python_impl == 'pypy'
 
 requirements:
   build:
@@ -44,7 +44,7 @@ requirements:
     - python-build
   run:
     - python
-    - scipy >=1.11
+    - scipy >=1.13
     - mumps-seq
 
 tests:
