@@ -12,7 +12,8 @@ source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/python_mumps-${{ version }}.tar.gz
   sha256: ec660d2dc4f6ded9b33beef6b0c12443a163383b1a0c8646221125026691d36f
   patches:
-    - patches/0001-meson-use-python-for-version.patch
+    - if: win
+      then: patches/0001-meson-windows-fallback.patch
 
 build:
   number: 0
