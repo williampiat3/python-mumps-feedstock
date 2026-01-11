@@ -46,7 +46,7 @@ requirements:
     - numpy
     - if: mpi == "nompi"
       then: mumps-seq
-      else: mumps
+      else: mumps-mpi
     - if: mpi != "nompi"
       then:
         - ${{ mpi }}
@@ -58,7 +58,7 @@ requirements:
     - scipy >=1.13
     - if: mpi == "nompi"
       then: mumps-seq
-      else: mumps
+      else: mumps-mpi
     - if: mpi != "nompi"
       then:
         - ${{ mpi }}
