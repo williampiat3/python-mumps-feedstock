@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: python-mumps
-  version: 0.0.5
+  version: "0.0.6"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/python_mumps-${{ version }}.tar.gz
-  sha256: ec660d2dc4f6ded9b33beef6b0c12443a163383b1a0c8646221125026691d36f
+  sha256: 58c33104f77c448e127e9e6da316f71dfb1a17719ecf022634669d513306b1fa
   patches:
     - if: win
       then: patches/0001-meson-windows-fallback.patch
@@ -22,19 +22,17 @@ build:
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: cython
-    - if: build_platform != target_platform
-      then: numpy
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - cython
+        - numpy
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - if: unix
-      then: ninja
-    - if: unix
-      then: pkg-config
+      then:
+        - ninja
+        - pkg-config
   host:
     - python
     - cython
