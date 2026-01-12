@@ -47,9 +47,6 @@ requirements:
     - if: mpi == "nompi"
       then: mumps-seq
       else: mumps-mpi
-    - if: mpi != "nompi"
-      then:
-        - ${{ mpi }}
     - setuptools-scm
     - pip
     - python-build
@@ -59,9 +56,6 @@ requirements:
     - if: mpi == "nompi"
       then: mumps-seq
       else: mumps-mpi
-    - if: mpi != "nompi"
-      then:
-        - ${{ mpi }}
 
 tests:
   - python:
