@@ -16,6 +16,8 @@ mpi:
 - mpich
 mpich:
 - '4'
+mumps_mpi:
+- 5.8.1
 mumps_seq:
 - 5.8.1
 numpy:
