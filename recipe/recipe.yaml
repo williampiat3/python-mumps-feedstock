@@ -71,9 +71,18 @@ tests:
       run:
         - pip
         - pytest
+        - if: mpi != "nompi"
+          then:
+            - mpi4py
+            - pytest-mpi
     script:
       - pip check
-      - python -c "import mumps; mumps.test()"
+      - >-
+        if [ "${{ mpi }}" = "nompi" ]; then
+          python -P -m pytest -v --import-mode=importlib --pyargs mumps -m "not mpi";
+        else
+          mpirun -n 2 python -P -m pytest -v -rs --import-mode=importlib --pyargs mumps -m mpi --with-mpi;
+        fi
 
 about:
   summary: Bindings and Python interface for the MUMPS sparse solver
