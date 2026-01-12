@@ -70,19 +70,24 @@ tests:
   - requirements:
       run:
         - pip
-        - pytest
-        - if: mpi != "nompi"
-          then:
-            - mpi4py
-            - pytest-mpi
     script:
       - pip check
-      - >-
-        if [ "${{ mpi }}" = "nompi" ]; then
-          python -P -m pytest -v --import-mode=importlib --pyargs mumps -m "not mpi";
-        else
-          mpirun -n 2 python -P -m pytest -v -rs --import-mode=importlib --pyargs mumps -m mpi --with-mpi;
-        fi
+  - if: win or mpi == "nompi"
+    then:
+      requirements:
+        run:
+          - pytest
+      script:
+        - python -P -m pytest -v --import-mode=importlib --pyargs mumps -m "not mpi"
+  - if: not win and mpi != "nompi"
+    then:
+      requirements:
+        run:
+          - pytest
+          - mpi4py
+          - pytest-mpi
+      script:
+        - mpirun -n 2 python -P -m pytest -v -rs --import-mode=importlib --pyargs mumps -m mpi --with-mpi
 
 about:
   summary: Bindings and Python interface for the MUMPS sparse solver
