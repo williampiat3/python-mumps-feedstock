@@ -74,7 +74,9 @@ tests:
         run:
           - pytest
       script:
-        - python -P -m pytest -v --import-mode=importlib --pyargs mumps -m "not mpi"
+        - if: match(python, "<3.11")
+          then: python -m pytest -v --import-mode=importlib --pyargs mumps -m "not mpi"
+          else: python -P -m pytest -v --import-mode=importlib --pyargs mumps -m "not mpi"
   - if: not win and mpi != "nompi"
     then:
       requirements:
@@ -83,7 +85,9 @@ tests:
           - mpi4py
           - pytest-mpi
       script:
-        - mpirun -n 2 python -P -m pytest -v -rs --import-mode=importlib --pyargs mumps -m mpi --with-mpi
+      - if: match(python, "<3.11")
+        then: mpirun -n 2 python -m pytest -v -rs --import-mode=importlib --pyargs mumps -m mpi --with-mpi
+        else: mpirun -n 2 python -P -m pytest -v -rs --import-mode=importlib --pyargs mumps -m mpi --with-mpi
 
 about:
   summary: Bindings and Python interface for the MUMPS sparse solver
