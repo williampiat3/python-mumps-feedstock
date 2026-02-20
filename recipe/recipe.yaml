@@ -16,6 +16,8 @@ source:
   patches:
     - if: win
       then: patches/0001-meson-windows-fallback.patch
+    - if: match(python, "<3.12")
+      then: patches/0002-python-version.patch
 
 build:
   number: ${{ build_number + (100 if mpi == "nompi" else 0) }}

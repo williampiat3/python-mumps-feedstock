@@ -1,0 +1,13 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index c141158..23c80c4 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -64,7 +64,7 @@ MKL_DYNAMIC = "FALSE"
+ MKL_NUM_THREADS = "1"
+
+ [tool.pixi.dependencies]
+-python = ">=3.12"
++python = ">=3.10"
+ scipy = ">=1.13"
+ numpy = ">=2.0"
+ setuptools_scm = ">=8.3.1,<9"
